@@ -1,0 +1,43 @@
+.navContainer {
+    border-bottom: 1px solid rgba(57, 76, 96, .15);
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    width: 100vw;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ececec;
+    .navInner {
+        padding: 0 2rem;
+        width: 100%;
+        display: flex;
+        margin: 1rem auto;
+        align-items: center;
+        justify-content: space-between;
+        .downloadBtn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            padding: 0.7rem 2rem;
+            background-color: rgb(72, 124, 255);
+            color: white;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+            &:hover{
+                background-color: blue;
+            }
+        }
+        .logo {
+            font-weight: 500;
+            font-size: 1.4rem;
+            span {
+                color: rgb(72, 124, 255);
+                font-weight: 400;
+            }
+        }
+       
+    }
+}

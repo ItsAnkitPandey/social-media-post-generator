@@ -1,0 +1,107 @@
+.sideNavContainer {
+    position: fixed;
+    top: 5rem;
+    height: 90vh;
+    width: 22rem;
+    border-right: 1px solid rgba(57, 76, 96, .15);
+    .sidebarScrollable {
+        max-height: 100%; /* Set the maximum height for scrolling */
+        overflow-y: auto;
+        padding-bottom: 20px;
+        .navItems {
+            margin: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-left: 2rem;
+            padding-right: 1rem;
+            li {
+                list-style: none;
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                cursor: pointer;
+                flex-direction: column;
+                text-transform: capitalize;
+                width: calc(100% - 2rem);
+                padding-bottom: 0.8rem;
+                border-bottom: 1px solid rgb(133, 133, 133, 0.2);
+                .navItem {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    align-items: center;
+
+                    .navTitle {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                }
+                .innerNavItems {
+                    width: 100%;
+                    .inputField {
+                        border: 1px solid rgb(133, 133, 133, 0.2);
+                        width: 100%;
+                        height: 2rem;
+                        border-radius: 8px;
+                        font: inherit;
+                        padding: 0.5rem;
+                    }
+                    textarea {
+                        border: 1px solid rgb(133, 133, 133, 0.2);
+                        width: 100%;
+                        border-radius: 8px;
+                        font: inherit;
+                        padding: 0.5rem;
+                        height: 10rem;
+                        resize: none;
+                    }
+                }
+                .dropDown {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 7px;
+                    li {
+                        padding: 1rem;
+                        border-radius: 8px;
+                        transition: 0.3s ease-in-out;
+                        border: none;
+                    }
+                    li:hover,
+                    &.active {
+                        background-color: rgb(116, 156, 255);
+                        color: white;
+                    }
+                }
+                .bgColors {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    max-height: 15rem;
+                    overflow-y: auto;
+
+                    .bgColor {
+                        width: 5rem;
+                        height: 5rem;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    .sideNavContainer {
+        position: unset;
+        width: auto;
+        margin-top: 8rem;
+    }
+
+    .bgColor {
+        width: 9rem;
+    }
+}

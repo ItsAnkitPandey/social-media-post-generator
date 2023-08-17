@@ -1,23 +1,54 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect, useRef } from 'react';
+
+import Header from './components/header/Header';
+import Sidebar from './components/sidebar/Sidebar';
+import Home from './pages/Home'
+import domToImage from 'dom-to-image';
 
 function App() {
+
+  const initialInputs = () => {
+    const data = localStorage.getItem('userInput')
+    return data ? JSON.parse(data) : {
+      name: 'Your Name',
+      userName: 'your_username',
+      profilePic: null,
+      socialPlatform: 3,
+      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor urna nec mauris congue, id consequat elit venenatis. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam et sapien at tellus sollicitudin accumsan.`,
+      selectBg: 2,
+      rounded: 10
+    }
+  }
+
+
+  const [userDetails, setUserDetails] = useState(initialInputs())
+  useEffect(() => {
+    localStorage.setItem('userInput', JSON.stringify(userDetails))
+  }, [userDetails])
+
+  const divRef = useRef(null);
+
+  const downloadImage = () => {
+    if (divRef.current) {
+      domToImage.toJpeg(divRef.current)
+        .then((dataURL) => {
+          const link = document.createElement('a');
+          link.download = 'your_post';
+          link.href = dataURL;
+          link.click();
+        })
+        .catch((error) => {
+          console.error('Error converting div to image:', error);
+        });
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header downloadImage={downloadImage} />
+      <Sidebar userDetails={userDetails} setUserDetails={setUserDetails} />
+      <Home userDetails={userDetails} divRef={divRef} />
     </div>
   );
 }
