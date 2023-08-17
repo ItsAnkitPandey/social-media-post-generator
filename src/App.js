@@ -13,7 +13,7 @@ function App() {
     return data ? JSON.parse(data) : {
       name: 'Your Name',
       userName: 'your_username',
-      profilePic: null,
+      profilePic: 'https://img.freepik.com/free-icon/user_318-150866.jpg',
       socialPlatform: 3,
       content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor urna nec mauris congue, id consequat elit venenatis. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam et sapien at tellus sollicitudin accumsan.`,
       selectBg: 2,
