@@ -128,7 +128,7 @@ const Sidebar = ({ setUserDetails, userDetails }) => {
               <div className='bgColors'>
                 {
                   gradientBackground.map((bg) =>
-                    <div key={bg.id} className='bgColor' style={{ backgroundImage: `${bg.gradient}`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }} onClick={() => setUserDetails({ ...userDetails, selectBg: bg.id })} >   </div>
+                    <div key={bg.id} className='bgColor' style={{ backgroundImage: `${bg.gradient}` }} onClick={() => setUserDetails({ ...userDetails, selectBg: bg.id })} >   </div>
                   )
                 }
               </div>

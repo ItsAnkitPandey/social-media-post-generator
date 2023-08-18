@@ -1,17 +1,33 @@
+@import '../mixins.scss';
+
 .home-container {
-    min-height: 100vh;
-    margin-left: 22rem;
-    width: calc(100% - 22rem);
+    position: unset;
+    width: auto;
+    margin-left: 0;
+    min-height: auto;
     margin-top: 3rem;
-    position: fixed;
     background-color: #ebecf0;
 
+    @include md {
+        position: fixed;
+        width: calc(100% - 22rem);
+        min-height: 100vh;
+        margin-left: 22rem;
+    }
+
     .home-inner {
-        padding: 40px;
+      
         display: flex;
         align-items: center;
         justify-content: center;
-        height: calc(100vh - 10rem);
+        padding: 10px;
+        height: calc(100vh - 17rem);
+       
+
+        @include md {
+            height: calc(100vh - 10rem);
+            padding: 40px;
+        }
 
         .PreviewArea {
             max-width: 48rem;
@@ -26,45 +42,56 @@
 
             .snippet {
                 background-color: rgba(255, 255, 255, 0.9);
-                max-width: 35rem;
+                min-width: 18rem;
+                max-width: 19rem;
                 border-radius: 10px;
                 padding: 0.9rem;
                 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+                @include md {
+                    min-width: 25rem;
+                    max-width: 35rem;
+                }
+
                 .snippetHeader {
                     width: 100%;
                     display: flex;
                     align-items: flex-start;
                     justify-content: space-between;
+
                     .leftContent {
                         display: flex;
                         align-items: center;
                         gap: 8px;
-                    
+
                         img {
                             width: 3rem;
                             height: 3rem;
                             border-radius: 50%;
                             object-fit: cover;
                         }
+
                         .snippetName {
                             display: flex;
                             flex-direction: column;
-                        
+
                             p {
                                 font-size: 0.8rem;
                                 color: #666d71;
                             }
                         }
                     }
-                    .rightContent{
+
+                    .rightContent {
                         img {
                             width: 1.5rem;
                             height: 1.5rem;
                             object-fit: contain;
                         }
-                    } 
-                    
+                    }
+
                 }
+
                 .snippetContent {
                     margin-top: 1rem;
                     max-height: 20rem;
@@ -75,7 +102,7 @@
                     white-space: pre-wrap;
                     word-break: keep-all;
                 }
-                
+
                 .snippetFooter {
                     margin-top: 1rem;
                     font-size: 0.8rem;
@@ -85,28 +112,4 @@
         }
     }
 }
-@media screen and (max-width: 480px){
-    .home-container{
-      position: unset;
-      width: auto;
-      margin-left:0;
-      min-height: auto;
-    }
-    .home-inner{
-      padding: 10px;
-      height: calc(100vh - 17rem);
-    }
-    .PreviewArea{
-      padding: 1rem;
-      max-height: 23rem;
-    }
-  }
-
-
-
-
-
-
-
-
 

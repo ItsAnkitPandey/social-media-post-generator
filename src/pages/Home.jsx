@@ -29,7 +29,7 @@ const Home = ({ userDetails, divRef }) => {
   return (
     <div className='home-container'>
       <div className="home-inner">
-        <div ref={divRef} className='PreviewArea' style={{ backgroundImage: `${getGradientById(selectBg)}`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
+        <div ref={divRef} className='PreviewArea' style={{ backgroundImage: `${getGradientById(selectBg)}` }}>
           <div className='snippet' style={{ borderRadius: `${rounded}px` }}>
             <div className='snippetHeader'>
               <div className='leftContent'>
